@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio Order App</title>
+</head>
+<body>
+        @* Menu de navegacion *@
+    <nav>
+        @Html.ActionLink("Instrumentos", "Index", "Instruments") |
+        @Html.ActionLink("Orden en curso", "Index", "OrderTicket") |
+        @Html.ActionLink("Depositos", "Index", "Deposits")
+    </nav>
+    <hr />
+    @RenderBody()
+</body>
+</html>

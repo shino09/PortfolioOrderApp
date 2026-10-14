@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../PortfolioOrderApp.Application/PortfolioOrderApp.Application.csproj" />
+  <Project Path="../PortfolioOrderApp.Domain/PortfolioOrderApp.Domain.csproj" />
+  <Project Path="../PortfolioOrderApp.Infrastructure/PortfolioOrderApp.Infrastructure.csproj" />
+  <Project Path="../PortfolioOrderApp.Tests/PortfolioOrderApp.Tests.csproj" />
+  <Project Path="PortfolioOrderApp.Web.csproj" />
+</Solution>
