@@ -1,0 +1,27 @@
+# --- .NET / Visual Studio ---
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.userprefs
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# --- Logs ---
+*.log
+
+# --- Uploads de comprobantes: ignorar archivos, conservar la carpeta ---
+PortfolioOrderApp/wwwroot/uploads/deposits/*
+!PortfolioOrderApp/wwwroot/uploads/deposits/.gitkeep
+
+# --- App_Data: ignorar el log de auditoría, conservar la carpeta ---
+PortfolioOrderApp/App_Data/*
+!PortfolioOrderApp/App_Data/.gitkeep
