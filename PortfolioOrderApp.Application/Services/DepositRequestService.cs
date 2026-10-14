@@ -3,6 +3,7 @@ using PortfolioOrderApp.Domain;
 
 namespace PortfolioOrderApp.Application.Services;
 
+// Caso de uso de depositos: valida la solicitud, guarda el comprobante y registra el deposito carpeta wwwroot\uploads\deposits.
 public class DepositRequestService
 {
     private static readonly string[] AllowedExtensions = { ".jpg", ".jpeg", ".png", ".pdf" };

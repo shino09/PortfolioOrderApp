@@ -3,6 +3,7 @@ using PortfolioOrderApp.Domain;
 
 namespace PortfolioOrderApp.Application.Services;
 
+// Caso de uso de ordenes: maneja el borrador de la orden y su confirmacion.
 public class OrderTicketService
 {
     private readonly IOrderTicketStore _store;
@@ -33,6 +34,7 @@ public class OrderTicketService
     }
 
     // Confirma la orden: registra una entrada de auditoria por linea y luego limpia el borrador.
+    //queda en App_Data/compliance_audit.log
     public void ConfirmTicket(IEnumerable<Instrument> catalog)
     {
         foreach (var line in _store.GetDraft())
