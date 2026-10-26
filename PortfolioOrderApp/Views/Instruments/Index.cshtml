@@ -1,0 +1,39 @@
+@model System.Collections.Generic.List<PortfolioOrderApp.Domain.Instrument>
+
+<h1>Catalogo de instrumentos</h1>
+
+@* Tabla instrumentos. *@
+<table>
+    <tr>
+        <th>Ticker</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th></th>
+    </tr>
+    @foreach (var instrument in Model)
+    {
+        <tr>
+            <td>@instrument.Ticker</td>
+            <td>@instrument.Name</td>
+            <td>@instrument.AssetType</td>
+            <td>@instrument.Price.ToString("C")</td>
+            <td>
+                @* envia el instrumento, lado, cantidad a OrderTicket/Add. *@
+                @using (Html.BeginForm("Add", "OrderTicket", FormMethod.Post))
+                {
+                    @Html.Hidden("instrumentId", instrument.Id)
+                    @Html.Hidden("ticker", instrument.Ticker)
+                    <select name="side">
+                        <option value="Compra">Compra</option>
+                        <option value="Venta">Venta</option>
+                    </select>
+                    @Html.TextBox("quantity", 1)
+                    <button type="submit">Agregar a orden</button>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<p>@Html.ActionLink("Ver orden actual", "Index", "OrderTicket")</p>

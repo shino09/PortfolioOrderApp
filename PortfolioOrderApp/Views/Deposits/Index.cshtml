@@ -1,0 +1,45 @@
+@model System.Collections.Generic.List<PortfolioOrderApp.Domain.DepositRequest>
+
+<h1>Solicitar deposito</h1>
+
+@* errores de validacion controlador. *@
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div style="color:red">
+        @Html.ValidationSummary(false)
+    </div>
+}
+
+@* Formulario multipart *@
+
+@using (Html.BeginForm("Create", "Deposits", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p>
+        Monto: @Html.TextBox("amount")
+    </p>
+    <p>
+        Comprobante (JPEG, PNG o PDF): <input type="file" name="receiptFile" />
+    </p>
+    <button type="submit">Enviar solicitud</button>
+}
+
+@* Listado de depositos *@
+<h2>Depositos solicitados</h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Monto</th>
+        <th>Estado</th>
+        <th>Comprobante</th>
+    </tr>
+    @foreach (var deposit in Model)
+    {
+        <tr>
+            <td>@deposit.Id</td>
+            <td>@deposit.Amount.ToString("C")</td>
+            <td>@deposit.Status</td>
+            <td>@deposit.ReceiptFileName</td>
+        </tr>
+    }
+</table>
